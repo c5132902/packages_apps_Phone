@@ -40,6 +40,7 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.RemoteException;
 import android.os.SystemProperties;
+import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.telephony.PhoneNumberUtils;
@@ -71,8 +72,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
-
-import android.preference.PreferenceManager;
 
 /**
  * Misc utilities for the Phone app.
@@ -394,23 +393,23 @@ public class PhoneUtils {
         Call fg = phone.getForegroundCall();
         Call bg = phone.getBackgroundCall();
         if (!ringing.isIdle()) {
-            return ringing;
-        }
+                return ringing;
+                }
         if (!fg.isIdle()) {
-            return fg;
-        }
+                return fg;
+                }
         if (!bg.isIdle()) {
-            return bg;
-        }
+                return bg;
+                }
         return fg;
     }
 
     static Connection getConnection(Phone phone, Call call) {
         if (call == null) {
             return null;
-        }
+            }
 
-        if (phone.getPhoneType() == Phone.PHONE_TYPE_CDMA) {
+        if (phone.getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA) {
             return call.getLatestConnection();
         }
 
@@ -420,21 +419,22 @@ public class PhoneUtils {
     static class PhoneSettings {
         static boolean vibOn45Secs(Context context) {
             return PreferenceManager.getDefaultSharedPreferences(context)
-                       .getBoolean("button_vibrate_45", false);
+                    .getBoolean("button_vibrate_45", false);
         }
         static boolean vibHangup(Context context) {
             return PreferenceManager.getDefaultSharedPreferences(context)
-                       .getBoolean("button_vibrate_hangup", false);
+                    .getBoolean("button_vibrate_hangup", false);
         }
         static boolean vibOutgoing(Context context) {
             return PreferenceManager.getDefaultSharedPreferences(context)
-                       .getBoolean("button_vibrate_outgoing", false);
+                    .getBoolean("button_vibrate_outgoing", false);
         }
+
         static boolean vibCallWaiting(Context context) {
             return PreferenceManager.getDefaultSharedPreferences(context)
-                       .getBoolean("button_vibrate_call_waiting", false);
+                    .getBoolean("button_vibrate_call_waiting", false);
         }
-    }
+    };
 
     static boolean hangupRingingCall(Call ringing) {
         if (DBG) log("hangup ringing call");
