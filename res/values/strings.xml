@@ -1511,9 +1511,6 @@
     <string name="noise_suppression_summary">Enable noise suppression for calls</string>
     <!-- End Noise suppression -->
 
-    <string name="perm_change_mobile_network">Change network (2G/3G)</string>
-    <string name="perm_change_mobile_network_desc">Application with this permission can, at any time, change between 2G data and 3G data. 3G is faster, consumes more battery, and can also cost you more money.</string>
-
     <!-- Mobile network settings screen, setting check box name -->
     <string name="national_roaming">National data roaming</string>
     <!-- Mobile network settings screen, setting summary text when check box is selected -->
