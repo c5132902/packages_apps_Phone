@@ -337,7 +337,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     public void toggle3G(boolean on) {
         int network = -1;
         if (on) {
-            network = PhoneConstants.NT_MODE_GSM_UMTS;
+            network = PhoneConstants.NT_MODE_WCDMA_ONLY;
         } else {
             network = PhoneConstants.NT_MODE_WCDMA_PREF;
         }
