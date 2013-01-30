@@ -432,12 +432,16 @@ public class PhoneUtils {
             return PreferenceManager.getDefaultSharedPreferences(context)
                     .getBoolean("button_vibrate_outgoing", false);
         }
-
         static boolean vibCallWaiting(Context context) {
             return PreferenceManager.getDefaultSharedPreferences(context)
                     .getBoolean("button_vibrate_call_waiting", false);
         }
-    };
+        static int flipAction(Context context) {
+            String s = PreferenceManager.getDefaultSharedPreferences(context)
+                      .getString("flip_action", "0");
+            return Integer.parseInt(s);
+        }
+    }
 
     static boolean hangupRingingCall(Call ringing) {
         if (DBG) log("hangup ringing call");
